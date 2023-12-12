@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI.js';
-import Carregando from '../Carregando.jsx';
 import PropTypes from 'prop-types';
 import { MusicCard, MusicTitle, MusicAudio, MusicCheckbox } from './style.js';
+import { SkeletonHeader } from '../Header/SkeletonHeader.jsx';
 
 export function MusicCards({ trackName, previewUrl, trackId, currSong }) {
-  const [carregou, setCarregou] = useState(false);
+
   const [favSongs, setFavSongs] = useState([]);
 
   const loadFavoritedSongs = () => {
@@ -13,14 +13,12 @@ export function MusicCards({ trackName, previewUrl, trackId, currSong }) {
   };
 
   const handleCheck = async ({ target: { checked } }) => {
-    setCarregou(true);
     if (checked) {
       await addSong(currSong);
     } else {
       await removeSong(currSong);
     }
     setFavSongs(JSON.parse(localStorage.getItem('favorite_songs')));
-    setCarregou(false);
   };
 
   useEffect(() => {
@@ -35,8 +33,8 @@ export function MusicCards({ trackName, previewUrl, trackId, currSong }) {
             <track kind="captions" />
             <code>audio</code>
           </MusicAudio>
-          {carregou ? (
-            <Carregando />
+          { favSongs.length === 0 ? (
+            <SkeletonHeader />
           ) : (
             <MusicCheckbox
               type="checkbox"

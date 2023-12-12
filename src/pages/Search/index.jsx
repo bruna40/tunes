@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Carregando from '../../components/Carregando';
 import { ContainerSearch, ContainerForm, ResultsMusic } from './style';
 
 const Search = () => {
@@ -8,7 +7,6 @@ const Search = () => {
   const [nameSave, setNameSave] = useState('');
   const [listMusic, setListMusic] = useState([]);
   const [disabled, setDisabled] = useState(true);
-  const [carregou, setCarregou] = useState(false);
   const [musica, setMusica] = useState(false);
 
   const HandleChange = (event) => {
@@ -18,7 +16,7 @@ const Search = () => {
 
   const validaNome = (event) => {
     event.preventDefault();
-    setCarregou(true);
+
     const artistNameURL = encodeURI(name).replaceAll('%20', '+');
     axios
       .get(`https://itunes.apple.com/search?entity=album&term=${artistNameURL}&attribute=allArtistTerm`)
@@ -45,7 +43,6 @@ const Search = () => {
           }),
         );
         setListMusic(albuns);
-        setCarregou(false);
         setMusica(true);
         setName('');
       }).catch((error) => {
@@ -64,9 +61,7 @@ const Search = () => {
 
   return (
     <>
-      {carregou ? (
-        <Carregando />
-      ) : (
+      {
         <ContainerSearch>
           <ContainerForm data-testid="page-search">
             <input
@@ -116,7 +111,7 @@ const Search = () => {
             </ResultsMusic>
           )}
         </ContainerSearch>
-      )}
+      }
     </>
   );
 };

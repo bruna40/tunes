@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext  } from 'react';
 import { createUser } from '../../services/userAPI.js';
-import Carregando from '../../components/Carregando.jsx';
 import { ContainerForm, Input, Button } from './style.js';
 import logoTunes from '../../assets/logoTunes.jpg';
 import { UserContext } from '../../context/UserContext.jsx';
@@ -32,9 +31,7 @@ const Login = () => {
 
   return (
     <div data-test="page-login">
-      {loading ? (
-        <Carregando />
-      ) : (
+      {
         <ContainerForm>
           <h1>Tunes</h1>
           <img src={ logoTunes } alt="logoTunes" />
@@ -56,7 +53,7 @@ const Login = () => {
             </Button>
           </form>
         </ContainerForm>
-      )}
+      }
     </div>
   );
 };

@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { getUser } from '../../services/userAPI.js';
 import Carregando from '../Carregando.jsx';
 import { ContainerHeader } from './style.js';
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 
 export function Header() {
   const [user, setUser] = useState('');
@@ -41,7 +39,7 @@ export function Header() {
               </a>
             </li>
             <li>
-              <p data-testid="header-user-name">{ user | <Skeleton />}</p>
+              <p data-testid="header-user-name">{ user}</p>
             </li>
           </ul>
         </div>

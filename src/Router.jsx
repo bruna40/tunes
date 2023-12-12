@@ -1,4 +1,3 @@
-
 import {  Route, Routes } from 'react-router-dom';
 import Album from './pages/Album.jsx';
 import Search from './pages/Search/index.jsx';
@@ -12,7 +11,6 @@ import { DefaultLayout } from './layouts/DefaultLayout/index.jsx';
 export function Router() {
   return (
         <Routes>
-          
           <Route  path="/" element={ <Login /> } />
           <Route path='/' element={<DefaultLayout />}>
             <Route  path="/search" element={ <Search /> } />

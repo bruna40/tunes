@@ -1,31 +1,28 @@
 import { useState, useEffect, useContext  } from 'react';
 import { createUser } from '../../services/userAPI.js';
 import { ContainerForm, Input, Button } from './style.js';
-import logoTunes from '../../assets/logoTunes.jpg';
+import { CassetteTape } from 'lucide-react';
 import { UserContext } from '../../context/UserContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { name, setName } = useContext(UserContext);
-  const [disabled, setDisabled] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [isButtonDisabled, setButtonDisabled] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const min = 3;
     if (name.length >= min) {
-      setDisabled(false);
+      setButtonDisabled(false);
       localStorage.setItem('userName', name);
     } else {
-      setDisabled(true);
+      setButtonDisabled(true);
     }
   }, [name]);
 
   const Logar = async (event) => {
-    setLoading(true);
     event.preventDefault();
     await createUser({ name });
-    setLoading(false);
     navigate('/search');
   };
 
@@ -34,7 +31,7 @@ const Login = () => {
       {
         <ContainerForm>
           <h1>Tunes</h1>
-          <img src={ logoTunes } alt="logoTunes" />
+          <span><CassetteTape size={200}  color={'#3b2853'} strokeWidth={0.75}/></span>
           <form>
             <Input
               type="text"
@@ -47,7 +44,7 @@ const Login = () => {
               type="submit"
               data-test="login-submit-button"
               onClick={ Logar }
-              disabled={ disabled }
+              disabled={ isButtonDisabled }
             >
               Entrar
             </Button>

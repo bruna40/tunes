@@ -43,7 +43,7 @@ export const Input = styled.input`
     font-size: 1rem;
 
     &:focus {
-        border: 0.1rem solid ${(props) => props.theme['green-300']};
+        border: 0.1rem solid #3d1174;
     }
 
 `;
@@ -54,7 +54,7 @@ export const Button = styled.button`
 
     border-radius: 0.5rem;
 
-    border: 0.1rem solid ${(props) => props.theme['gray-300']};
+    background-color: ${props => (props.disabled ? '#CCCCCC' : '#a861c2')};
 
     cursor: pointer;
 `;

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Carregando from '../../components/Carregando';
 import { ContainerSearch, ContainerForm, ResultsMusic } from './style';
@@ -94,8 +93,8 @@ const Search = () => {
               <span>
                 {listMusic.map((song) => (
                   <div key={ song.collectionId }>
-                    <Link
-                      to={ `/album/${song.collectionId}` }
+                    <a
+                      href={ `/album/${song.collectionId}` }
                       data-testid={ `link-to-album-${song.collectionId}` }
                     >
                       <img
@@ -109,7 +108,7 @@ const Search = () => {
                         {song.collectionName}
                       </p>
 
-                    </Link>
+                    </a>
                   </div>
                 ))}
               </span>

@@ -1,5 +1,5 @@
 import {  Route, Routes } from 'react-router-dom';
-import Album from './pages/Album.jsx';
+import Album from './pages/Album/index.jsx';
 import Search from './pages/Search/index.jsx';
 import Favorites from './pages/Favorites.jsx';
 import Login from './pages/Login/index';

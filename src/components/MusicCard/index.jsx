@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { addSong, removeSong } from '../services/favoriteSongsAPI.js';
-import Carregando from './Carregando.jsx';
+import { addSong, removeSong } from '../../services/favoriteSongsAPI.js';
+import Carregando from '../Carregando.jsx';
+import PropTypes from 'prop-types';
+import { MusicCard, MusicTitle, MusicAudio, MusicCheckbox } from './style.js';
 
-export function MusicCards(props) {
-  const { trackName, previewUrl, trackId, currSong } = props;
+export function MusicCards({ trackName, previewUrl, trackId, currSong }) {
   const [carregou, setCarregou] = useState(false);
   const [favSongs, setFavSongs] = useState([]);
 
@@ -26,18 +27,18 @@ export function MusicCards(props) {
     loadFavoritedSongs();
   }, []);
   return (
-    <div>
+    <MusicCard>
       {trackName && (
         <>
-          <h3>{trackName}</h3>
-          <audio data-testid="audio-component" src={ previewUrl } controls>
+          <MusicTitle>{trackName}</MusicTitle>
+          <MusicAudio data-testid="audio-component" src={ previewUrl } controls>
             <track kind="captions" />
             <code>audio</code>
-          </audio>
+          </MusicAudio>
           {carregou ? (
             <Carregando />
           ) : (
-            <input
+            <MusicCheckbox
               type="checkbox"
               data-testid={ `checkbox-music-${trackId}` }
               checked={ favSongs.some((item) => item.trackId === trackId) }
@@ -46,7 +47,13 @@ export function MusicCards(props) {
           )}
         </>
       )}
-    </div>
+    </MusicCard>
   );
 }
 
+MusicCards.propTypes = {
+  trackName: PropTypes.string.isRequired,
+  previewUrl: PropTypes.string.isRequired,
+  trackId: PropTypes.number.isRequired,
+  currSong: PropTypes.object.isRequired,
+};

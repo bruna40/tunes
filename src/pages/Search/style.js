@@ -36,7 +36,6 @@ export const ResultsMusic = styled.section`
     margin-top: 2rem;
 
 
-
     span {
         margin-top:  2rem;
         display: grid;
@@ -54,7 +53,7 @@ export const ResultsMusic = styled.section`
         padding: 1rem;
         gap: 1rem;
 
-        p {
+        a {
             text-decoration: none;
         }
     }

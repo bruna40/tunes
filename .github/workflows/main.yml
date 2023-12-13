@@ -18,6 +18,6 @@ jobs:
 
             - name: Cypress run
               uses: cypress-io/github-action@v6
-              with:
-                start: npm run dev
-                test: npx cypress run
+        
+            - run: npm ci
+            - run: npx cypress run

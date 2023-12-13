@@ -5,7 +5,10 @@ export const NotFoundContainer = styled.main`
     
     text-align: center;
     padding: 50px;
-    background-color: #f8f8f8;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
 
     img {

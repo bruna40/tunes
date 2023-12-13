@@ -16,7 +16,7 @@ export const ContainerForm = styled.form`
         padding: 1rem 2rem;
         border-bottom-left-radius: 0.5rem;
         border-top-left-radius: 0.5rem;
-        border: 0.1rem solid #a861c2;
+        border: 0.1rem solid ${(props) => props.theme['gray-300']};
         font-size: 1rem;
         &:focus {
             border: 0.1rem solid #692083;
@@ -30,6 +30,16 @@ export const ContainerForm = styled.form`
         border: 0.1rem solid ${(props) => props.theme['gray-300']};
         cursor: pointer;
         background-color: ${props => (props.disabled ? '#CCCCCC' : '#a861c2')};
+    }
+
+    @media(min-width: 768px) {
+        input {
+            width: 25rem;
+        }
+
+        button {
+            width: 10rem;
+        }
     }
 
 `;
@@ -58,6 +68,17 @@ export const ResultsMusic = styled.section`
 
         a {
             text-decoration: none;
+        }
+    }
+
+    @media (min-width: 768px) {
+        span {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        a {
+            flex-direction: row;
         }
     }
 `;

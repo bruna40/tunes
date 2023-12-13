@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ContainerSearch, ContainerForm, ResultsMusic } from './style';
+import { SkeletonMusic } from './SkeletonMusics.jsx';
 
 const Search = () => {
   const [name, setName] = useState('');
@@ -83,10 +84,10 @@ const Search = () => {
           {musica && (
             <ResultsMusic>
               <p>
-                { `Resultado de álbuns de: ${nameSave}`}
+                { `Resultado de álbuns de ${nameSave}:`}
               </p>
               <span>
-                {listMusic.map((song) => (
+                {listMusic.length > 0 ? listMusic.map((song) => (
                   <div key={ song.collectionId }>
                     <a
                       href={ `/album/${song.collectionId}` }
@@ -105,7 +106,7 @@ const Search = () => {
 
                     </a>
                   </div>
-                ))}
+                )) : <SkeletonMusic /> }
               </span>
               {listMusic.length === 0 && <p>Nenhum álbum foi encontrado</p>}
             </ResultsMusic>

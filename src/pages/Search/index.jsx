@@ -67,14 +67,14 @@ const Search = () => {
           <ContainerForm data-testid="page-search">
             <input
               type="text"
-              data-testid="search-artist-input"
+              data-test="search-artist-input"
               value={ name }
               onChange={ HandleChange }
               placeholder='Digite o nome do artista ou musica'
             />
             <button
               type="submit"
-              data-testid="search-artist-button"
+              data-test="search-artist-button"
               onClick={ validaNome }
               disabled={ isButtonDisabled }
             >
@@ -83,15 +83,15 @@ const Search = () => {
           </ContainerForm>
           {musica && (
             <ResultsMusic>
-              <p>
+              <p data-test='artist-music'>
                 { `Resultado de álbuns de ${nameSave}:`}
               </p>
               <span>
                 {listMusic.length > 0 ? listMusic.map((song) => (
-                  <div key={ song.collectionId }>
+                  <div key={ song.collectionId } data-test='music-card'>
                     <a
                       href={ `/album/${song.collectionId}` }
-                      data-testid={ `link-to-album-${song.collectionId}` }
+                      data-test={ `link-to-album-${song.collectionId}` }
                     >
                       <img
                         src={ song.artworkUrl100 }

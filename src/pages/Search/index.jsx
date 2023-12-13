@@ -6,7 +6,7 @@ const Search = () => {
   const [name, setName] = useState('');
   const [nameSave, setNameSave] = useState('');
   const [listMusic, setListMusic] = useState([]);
-  const [disabled, setDisabled] = useState(true);
+  const [isButtonDisabled, setButtonDisabled] = useState(true);
   const [musica, setMusica] = useState(false);
 
   const HandleChange = (event) => {
@@ -53,9 +53,9 @@ const Search = () => {
   useEffect(() => {
     const min = 2;
     if (name.length >= min) {
-      setDisabled(false);
+      setButtonDisabled(false);
     } else {
-      setDisabled(true);
+      setButtonDisabled(true);
     }
   }, [name]);
 
@@ -75,7 +75,7 @@ const Search = () => {
               type="submit"
               data-testid="search-artist-button"
               onClick={ validaNome }
-              disabled={ disabled }
+              disabled={ isButtonDisabled }
             >
               Procurar
             </button>

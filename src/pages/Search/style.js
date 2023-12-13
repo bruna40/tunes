@@ -7,6 +7,8 @@ export const ContainerSearch = styled.main`
 
     margin-top: 2rem;
 
+    padding: 1rem;
+
 `;
 
 export const ContainerForm = styled.form`
@@ -14,10 +16,10 @@ export const ContainerForm = styled.form`
         padding: 1rem 2rem;
         border-bottom-left-radius: 0.5rem;
         border-top-left-radius: 0.5rem;
-        border: 0.1rem solid ${(props) => props.theme['gray-300']};
+        border: 0.1rem solid #a861c2;
         font-size: 1rem;
         &:focus {
-            border: 0.1rem solid ${(props) => props.theme['green-300']};
+            border: 0.1rem solid #692083;
         }
     }
 
@@ -27,6 +29,7 @@ export const ContainerForm = styled.form`
         border-top-right-radius: 0.5rem;
         border: 0.1rem solid ${(props) => props.theme['gray-300']};
         cursor: pointer;
+        background-color: ${props => (props.disabled ? '#CCCCCC' : '#a861c2')};
     }
 
 `;

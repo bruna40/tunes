@@ -28,11 +28,11 @@ const Album = () => {
   return (
     <>
       {exist ? (
-        <AlbumContainer>
-            <h1 data-testid="artist-name">{musica[0].artistName}</h1>
-            <h2 data-testid="album-name">{musica[0].collectionName}</h2>
+        <AlbumContainer data-test='page-album'>
+            <h1 data-test="artist-name">{musica[0].artistName}</h1>
+            <h2 data-test="album-name">{musica[0].collectionName}</h2>
             {musica.map((song) => (
-              <ContainerAlbum key={ song.collectionId }>
+              <ContainerAlbum key={ song.collectionId } data-test={`music-${song.trackId}`}>
                 <MusicCards
                   
                   trackName={ song.trackName }

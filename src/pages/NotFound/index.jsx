@@ -1,12 +1,16 @@
 import { NotFoundContainer } from "./style.js";
+import { useNavigate } from "react-router-dom";
 
 export function NotFound() {
+
+  const navigate = useNavigate();
   return (
     <NotFoundContainer>
-      <img src="https://cinepop.com.br/wp-content/uploads/2023/01/image-3-696x442.jpg.webp" alt="gremlin com oculos 3d no cinema"/>
-      <h1>404 - Página não encontrada</h1>
+      <img src="https://media2.giphy.com/media/l2YWsLzUTibpLQure/200w.webp?cid=ecf05e47pgfbzoem2l7fepjm88rkxrp1ilq39s8cb4y9xl23&ep=v1_gifs_search&rid=200w.webp&ct=g" alt="gif de um gremlin segurando chocolates"/>
+     
+      <h3> 404 - pagina não encontrada</h3>
       <p>Ops! Parece que alguém escondeu esta página. Talvez tenha sido um gremlin travesso.</p>
-      <p>Mas não se preocupe, você pode voltar à <a href="/">página inicial</a> e tentar novamente.</p>
+      <p>Mas não se preocupe, você pode voltar à <a href='/search'>página inicial</a> e tentar novamente.</p>
     </NotFoundContainer>
   );
 }

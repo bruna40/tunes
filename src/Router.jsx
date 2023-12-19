@@ -19,7 +19,7 @@ export function Router() {
             <Route  path="/profile" element={ <Profile /> } />
             <Route  path="/profile/edit" element={ <ProfileEdit />} />
           </Route>
-          <Route path="*" element={ <NotFound />} />
+          <Route path="/*" element={ <NotFound />} />
   
         </Routes>
     

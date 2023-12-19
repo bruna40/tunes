@@ -1,6 +1,6 @@
 import { NotFoundContainer } from "./style.js";
 
-export function NotFound() {
+const NotFound = () => {
   return (
     <NotFoundContainer>
       <img src="https://media2.giphy.com/media/l2YWsLzUTibpLQure/200w.webp?cid=ecf05e47pgfbzoem2l7fepjm88rkxrp1ilq39s8cb4y9xl23&ep=v1_gifs_search&rid=200w.webp&ct=g" alt="gif de um gremlin segurando chocolates"/>
@@ -11,3 +11,5 @@ export function NotFound() {
     </NotFoundContainer>
   );
 }
+
+export default NotFound;

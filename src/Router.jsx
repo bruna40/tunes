@@ -3,7 +3,7 @@ import Album from './pages/Album/index';
 import Search from './pages/Search/index';
 import Favorites from './pages/Favorites';
 import Login from './pages/Login/index';
-import {NotFound} from './pages/NotFound/index'
+import NotFound from './pages/NotFound/index'
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import { DefaultLayout } from './layouts/DefaultLayout/index';
